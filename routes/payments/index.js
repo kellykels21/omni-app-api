@@ -7,7 +7,7 @@ payments.get('/', (req, res) =>{
     res.send(200, {message: 'Payments Connected.'})
 })
 
-payments.get('/remove/:id', deleteById)
+payments.delete('/remove/:id', deleteById)
 payments.get('/:userID', getPaymentsByUserID)
 payments.post('/new', create)
 
