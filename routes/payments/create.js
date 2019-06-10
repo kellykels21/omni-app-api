@@ -1,7 +1,6 @@
 const Payment = require('../../models/payment')
 
 module.exports = (req, res) => {
-    console.log(req.body)
     const payment = new Payment({
         user: req.body.userID,
         vendor: req.body.vendor,
