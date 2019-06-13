@@ -4,8 +4,10 @@ const port = 3000
 const routes = require('./routes')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 app.use(bodyParser.json())
+app.use(cors)
 
 //Connect to DB
 mongoose.connect('mongodb://localhost/budgeteer-api-db-1', ({useNewUrlParser: true}))
