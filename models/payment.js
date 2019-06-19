@@ -11,7 +11,7 @@ var paymentSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        default: null,
     },
     amount: {
         type: Number,
