@@ -3,13 +3,17 @@ const mongoose = require('mongoose')
 var userSchema = new mongoose.Schema({
   annualIncome: {
     type: Number,
-    required: true
+    default: null 
   },
   monthlyIncome: {
     type: Number,
     default: null
   },
   state: {
+    type: String,
+    default: null
+  },
+  authID: {
     type: String,
     required: true
   }
