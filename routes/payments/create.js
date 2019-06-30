@@ -2,7 +2,7 @@ const Payment = require('../../models/payment')
 
 module.exports = async (req, res) => {
     const payment = new Payment({
-        userID: req.body.userID,
+        authID: req.body.authID,
         vendor: req.body.vendor,
         description: req.body.description,
         amount: req.body.amount,

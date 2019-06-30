@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 var paymentSchema = new mongoose.Schema({
-    userID: {
+    authID: {
         type: String,
         required: true
     },

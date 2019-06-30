@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 //Connect to DB
-mongoose.connect('mongodb://localhost/budgeteer-api-db-2', ({useNewUrlParser: true}))
+mongoose.connect('mongodb://localhost/budgeteer-api-db-3', ({useNewUrlParser: true}))
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
