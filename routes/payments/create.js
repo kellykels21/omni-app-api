@@ -1,9 +1,8 @@
 const Payment = require('../../models/payment')
 
-module.exports = (req, res) => {
-    console.log(req.body)
+module.exports = async (req, res) => {
     const payment = new Payment({
-        user: req.body.userID,
+        authID: req.body.authID,
         vendor: req.body.vendor,
         description: req.body.description,
         amount: req.body.amount,
@@ -12,7 +11,7 @@ module.exports = (req, res) => {
         type: req.body.type
     })
 
-    payment.save((err, payment) => {
+    await payment.save((err, payment) => {
         if (err) return console.error(err)
         res.send(201, {message: 'Payment created!', payment})
     })

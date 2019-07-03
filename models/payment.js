@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 var paymentSchema = new mongoose.Schema({
-    user: {
+    authID: {
         type: String,
         required: true
     },
@@ -11,7 +11,7 @@ var paymentSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        default: null,
     },
     amount: {
         type: Number,
@@ -31,6 +31,6 @@ var paymentSchema = new mongoose.Schema({
     }
 })
 
-const Payment = mongoose.model('Kitten', paymentSchema)
+const Payment = mongoose.model('Payment', paymentSchema)
 
 module.exports = Payment
