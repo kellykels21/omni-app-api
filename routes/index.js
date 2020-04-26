@@ -1,8 +1,6 @@
-const routes = require('express').Router()
-const payments = require('./payments')
-const user = require('./user')
+const routes = require("express").Router();
+const user = require("./user");
 
-routes.use('/user', user)
-routes.use('/payments', payments)
+routes.use("/user", user);
 
-module.exports = routes
+module.exports = routes;

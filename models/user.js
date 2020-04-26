@@ -1,24 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-var userSchema = new mongoose.Schema({
-  annualIncome: {
-    type: Number,
-    default: null 
-  },
-  monthlyIncome: {
-    type: Number,
-    default: null
-  },
-  state: {
-    type: String,
-    default: null
-  },
-  authID: {
-    type: String,
-    required: true
-  }
-})
+var userSchema = new mongoose.Schema({});
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model("User", userSchema);
 
-module.exports = User
+module.exports = User;
