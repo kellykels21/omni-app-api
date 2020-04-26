@@ -1,7 +1,7 @@
 {
   "name": "omni-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for Omni App",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
