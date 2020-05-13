@@ -1,20 +1,16 @@
-const User = require('../../models/user')
+const User = require("../../models/user");
 
 module.exports = async (req, res) => {
   const newUser = new User({
-    annualIncome: req.body.annualIncome,
-    monthlyIncome: req.body.monthlyIncome,
-    // monthlyIncome: (req.body.monthlyIncome == null ? await calculateMonthlyIncome(req.body.annualIncome, req.body.state) : req.body.monthlyIncome),
-    state: req.body.state,
-    authID: req.body.authID
-  })
+    name: req.body.name,
+    email: req.body.email,
+    rsvps: req.body.rsvps,
+    friends: req.body.friends,
+    placeIdOfCurrentLocation: req.body.placeIdOfCurrentLocation,
+  });
 
   await newUser.save((err, user) => {
-    if (err) throw err
-    res.status(201).send(user)
-  })
-}
-
-const calculateMonthlyIncome = async (annualIncome, state) => {
-  return {}
-}
+    if (err) throw err;
+    res.status(201).send(user);
+  });
+};
