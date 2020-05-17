@@ -8,10 +8,13 @@ module.exports = async (req, res) => {
     placeIdOfCurrentLocation: req.body.placeIdOfCurrentLocation,
     status: req.body.status,
     location: req.body.location,
+    imageUrl: req.body.imageUrl,
   });
 
   await newVenue.save((err, venue) => {
-    if (err) throw err;
+    if (err) {
+      if (err.code != 11000) console.log(err);
+    }
     res.status(201).send(venue);
   });
 };

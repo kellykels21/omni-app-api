@@ -14,14 +14,14 @@ const pointSchema = new mongoose.Schema({
 
 var venueSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  placeId: { type: String, required: true },
+  placeId: { type: String, required: true, unique: true },
   rsvps: [String],
-  placeIdOfCurrentLocation: String,
   status: [Number],
   location: {
     type: pointSchema,
     required: true,
   },
+  imageUrl: { type: String, required: true },
 });
 
 const Venue = mongoose.model("Venue", venueSchema);
