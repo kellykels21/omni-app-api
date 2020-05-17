@@ -21,7 +21,7 @@ var venueSchema = new mongoose.Schema({
     type: pointSchema,
     required: true,
   },
-  imageUrl: { type: String, required: true },
+  imageUrl: String,
 });
 
 const Venue = mongoose.model("Venue", venueSchema);
