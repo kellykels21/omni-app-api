@@ -5,10 +5,9 @@ module.exports = async (req, res) => {
     name: req.body.name,
     placeId: req.body.placeId,
     rsvps: req.body.rsvps,
-    placeIdOfCurrentLocation: req.body.placeIdOfCurrentLocation,
     status: req.body.status,
     location: req.body.location,
-    imageUrl: req.body.imageUrl,
+    photoReference: req.body.photoReference,
   });
 
   await newVenue.save((err, venue) => {
