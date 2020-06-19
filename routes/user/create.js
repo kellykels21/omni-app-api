@@ -7,10 +7,13 @@ module.exports = async (req, res) => {
     rsvps: req.body.rsvps,
     friends: req.body.friends,
     placeIdOfCurrentLocation: req.body.placeIdOfCurrentLocation,
+    authId: req.body.authId,
   });
 
   await newUser.save((err, user) => {
-    if (err) throw err;
+    if (err) {
+      if (err.code != 11000) console.log(err);
+    }
     res.status(201).send(user);
   });
 };
