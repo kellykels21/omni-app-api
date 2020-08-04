@@ -1,11 +1,8 @@
 const venue = require("express").Router();
 const create = require("./create");
-const getVenuesByRadius = require("./getVenuesByRadius");
-const getVenueByPlaceId = require("./getVenueByPlaceId");
+const createBatch = require("./create-batch");
 
 // TODO: update venues routes to create new venues in db
-// - handle duplicate place ids
-// - handle creations in batch
 
 venue.get("/healthcheck", (req, res) => {
   res.send(200, { message: "Venue Connected." });
@@ -13,8 +10,6 @@ venue.get("/healthcheck", (req, res) => {
 
 venue.post("/new", create);
 
-venue.get("/local", getVenuesByRadius);
-
-venue.get("/search/placeid", getVenueByPlaceId);
+venue.post("/new/batch", createBatch);
 
 module.exports = venue;
