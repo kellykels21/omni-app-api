@@ -8,7 +8,9 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 //Connect to DB
-mongoose.connect("mongodb://localhost/omni-api-db", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/omni-api-db-v2", {
+  useNewUrlParser: true,
+});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));

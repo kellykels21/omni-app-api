@@ -1,7 +1,8 @@
 const Venue = require("../../models/venue");
+const venue = require(".");
 
 module.exports = async (req, res) => {
-  const venues = req.body.venues;
+  const venues = JSON.parse(req.body.venues);
 
   for (let i = 0; i < venues.length; i++) {
     const venue = venues[i];
