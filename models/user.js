@@ -13,7 +13,7 @@ var requestSchema = new mongoose.Schema({
 const Request = mongoose.model("Request", requestSchema);
 
 var userSchema = new mongoose.Schema({
-  handle: { type: String },
+  handle: { type: String, required: true, unique: true },
   name: { type: String },
   authId: { type: String, required: true, unique: true },
   friends: [String],
