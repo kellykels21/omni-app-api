@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 var venueSchema = new mongoose.Schema({
   placeId: { type: String, required: true, unique: true },
-  attendees: [String],
+  guests: [String],
   currentHotnessRating: Number,
 });
 
