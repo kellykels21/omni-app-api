@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 var requestSchema = new mongoose.Schema({
   from: { type: String, required: true },
+  to: { type: String, required: true },
   type: { type: String, enum: ["FRIEND", "RSVP"], required: true },
   status: {
     type: String,
@@ -17,7 +18,7 @@ var userSchema = new mongoose.Schema({
   authId: { type: String, required: true, unique: true },
   friends: [String],
   requests: [requestSchema],
-  placeIdOfCurrentLocation: String,
+  currentLocation: String,
 });
 
 const User = mongoose.model("User", userSchema);
