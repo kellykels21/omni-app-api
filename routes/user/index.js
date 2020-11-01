@@ -1,6 +1,7 @@
 const user = require("express").Router();
 const create = require("./create");
-const updateCurrentLocation = require("./updateCurrentLocation");
+const addCurrentLocation = require("./addCurrentLocation");
+const removeCurrentLocation = require("./removeCurrentLocation");
 const searchUsers = require("./searchUsers");
 const getUserByAuthId = require("./getUserByAuthId");
 
@@ -10,7 +11,8 @@ user.get("/healthcheck", (req, res) => {
 
 user.post("/new", create);
 
-user.put("/location", updateCurrentLocation);
+user.put("/location/add", addCurrentLocation);
+user.put("/location/remove", removeCurrentLocation);
 
 user.get("/search", searchUsers);
 
