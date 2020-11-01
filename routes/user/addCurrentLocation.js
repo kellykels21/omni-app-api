@@ -1,12 +1,13 @@
 const User = require("../../models/user");
 
+//TODO: Add Validations
 module.exports = async (req, res) => {
-  const query = { authId: req.body.authId };
+  const query = { authId: req.query.authId };
   User.findOneAndUpdate(
     query,
-    { currentLocation: req.body.placeId },
+    { currentLocation: req.query.placeId },
     (result) => {
-      res.status(204).send("User Location Updated Successfully.");
+      res.status(204).send(result);
     }
   );
 };
