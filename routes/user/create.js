@@ -10,9 +10,9 @@ module.exports = async (req, res) => {
   });
 
   await newUser.save((err, user) => {
-    if (err.code == 11000) {
-      res.status(409).send();
-    }
+    // if (err) {
+    //   res.status(409).send();
+    // }
     console.log("hit");
     res.status(201).send(user);
 
