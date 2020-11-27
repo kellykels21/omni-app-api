@@ -1,6 +1,7 @@
 const user = require("express").Router();
 const create = require("./create");
 const addCurrentLocation = require("./addCurrentLocation");
+const createFriendRequest = require("./createFriendRequest");
 const removeCurrentLocation = require("./removeCurrentLocation");
 const searchUsers = require("./searchUsers");
 const getUserByAuthId = require("./getUserByAuthId");
@@ -13,6 +14,8 @@ user.post("/new", create);
 
 user.put("/location/add", addCurrentLocation);
 user.put("/location/remove", removeCurrentLocation);
+
+user.put("/friend/request/create", createFriendRequest);
 
 user.get("/search", searchUsers);
 
