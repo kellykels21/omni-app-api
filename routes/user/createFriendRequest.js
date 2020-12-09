@@ -1,8 +1,14 @@
 const User = require("../../models/user");
 
 module.exports = async (req, res) => {
-  const fromQuery = { authId: req.query.from };
-  const toQuery = { authId: req.query.to };
+  const fromQuery = {
+    authId: req.query.from,
+    "requests.to": { $ne: req.query.to },
+  };
+  const toQuery = {
+    authId: req.query.to,
+    "requests.from": { $ne: req.query.from },
+  };
 
   const request = {
     from: req.query.from,
@@ -14,7 +20,6 @@ module.exports = async (req, res) => {
   User.findOneAndUpdate(
     fromQuery,
     { $push: { requests: request } },
-    { new: true, upsert: true },
     (err, updatedUser) => {
       if (err) throw err;
       console.log(updatedUser);
@@ -24,7 +29,6 @@ module.exports = async (req, res) => {
   User.findOneAndUpdate(
     toQuery,
     { $push: { requests: request } },
-    { new: true, upsert: true },
     (err, updatedUser) => {
       if (err) throw err;
       console.log(updatedUser);
